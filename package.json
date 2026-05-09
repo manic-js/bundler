@@ -5,6 +5,11 @@
   "bin": {
     "manic-bundler": "./src/cli.ts"
   },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
   "type": "module",
   "main": "./src/index.ts",
   "types": "./src/index.ts",
@@ -23,7 +28,14 @@
     "format": "bunx --bun oxfmt --config .oxfmt.json .",
     "format:check": "bunx --bun oxfmt --check --config .oxfmt.json .",
     "typecheck": "bunx --bun tsc --noEmit",
-    "validate": "bun run lint && bun run format:check && bun run typecheck"
+    "validate": "bun run lint && bun run format:check && bun run typecheck",
+    "ci:compliance": "test -f CODE_OF_CONDUCT.md && test -f LICENSE && test -f README.md",
+    "ci:lint": "bunx --bun oxlint --config .oxlintrc.json .",
+    "ci:format": "bunx --bun oxfmt --check --config .oxfmt.json .",
+    "ci:typecheck": "bunx --bun tsc --noEmit",
+    "ci:build": "bun build src/index.ts --target bun --outdir .ci-build",
+    "test": "bun test --timeout 30000",
+    "ci:test": "bun run test"
   },
   "dependencies": {
     "oxc-minify": "^0.129.0",
