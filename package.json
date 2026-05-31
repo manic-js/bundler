@@ -1,6 +1,6 @@
 {
   "name": "@manicjs/bundler",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": false,
   "bin": {
     "manic-bundler": "./src/cli.ts"
