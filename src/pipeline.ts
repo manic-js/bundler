@@ -142,7 +142,7 @@ export async function buildApplication<TConfig = unknown>(
       asset: 'assets/[name]-[hash].[ext]',
     },
     define: { 'process.env.NODE_ENV': JSON.stringify('production') },
-    plugins: options.clientPlugins,
+    plugins: options.clientPlugins || [],
   });
   if (!clientBuild.success) {
     throw new Error(`Client build failed:\n${clientBuild.logs.join('\n')}`);
